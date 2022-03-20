@@ -17,4 +17,8 @@ export class ProductsService {
   getProducts():Observable<[]>{
     return this.httpClient.get<[]>('https://fakestoreapi.com//products?limit=15');
   }
+  
+  getProductById(id:string):Observable<[]>{
+    return this.httpClient.get<[]>('https://fakestoreapi.com//products/' + id);
+  }
 }

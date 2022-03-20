@@ -1,4 +1,4 @@
 <p>card works!</p>
 <ul>
-  <li *ngFor="let cardItem of cardItems">{{ cardItem }}</li>
+  <li *ngFor="let cardItem of cardItems">{{ cardItem.qty }}x {{ cardItem.product.title }}</li>
 </ul>

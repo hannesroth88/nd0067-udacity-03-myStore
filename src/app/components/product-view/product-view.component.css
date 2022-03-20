@@ -22,7 +22,3 @@
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
  }
- .qty-select{
-     height: 38px;
-     vertical-align: middle;
- }

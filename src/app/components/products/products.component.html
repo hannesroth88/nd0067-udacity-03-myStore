@@ -1,29 +1,10 @@
 <div class="container">
   <div class="row text-center">
-    <br>
+    <br />
   </div>
   <div class="row">
-    <div class="col-sm" *ngFor="let product of productList">
-      <div class="card" margin="20px">
-        <div class="products-card-image">
-          <img
-            class="card-img-top products-image"
-            src="{{ product.image }}"
-            alt="Card image cap"
-          />
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ product.title }}</h5>
-          <p class="card-text">Price: {{ product.price }}€</p>
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Qty</button>
-            <ul ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <li ngbDropdownItem *ngFor="let i of qtyDropdownElements">{{i}}</li>
-            </ul>
-          </div>
-          <button (click)="addToCardComponent(product,2) "class="btn btn-primary">add to card</button>
-        </div>
-        </div>
-    </div>
+    
+      <app-product class="col-sm" *ngFor="let product of productList" [product]="product"></app-product>
+                                                                                    
   </div>
 </div>
