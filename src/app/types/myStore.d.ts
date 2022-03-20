@@ -7,3 +7,8 @@ interface Product {
   image: string;
   rating: { rate: number; count: number };
 }
+
+interface CardItem {
+  product:Product;
+  qty:number
+}

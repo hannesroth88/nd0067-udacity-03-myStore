@@ -4,17 +4,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsComponent } from './components/products/products.component';
-import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { CardComponent } from './components/card/card.component';
+import { ProductComponent } from './components/product/product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    CartComponent,
-    NavigationComponent
+    NavigationComponent,
+    CardComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
