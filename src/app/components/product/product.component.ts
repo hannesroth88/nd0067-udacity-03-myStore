@@ -1,13 +1,15 @@
-import { Component, Input, OnInit } from "@angular/core"
+import { Component, OnInit } from "@angular/core"
+import { ActivatedRoute } from "@angular/router"
 import { CardService } from "src/app/services/card.service"
+import { ProductsService } from "src/app/services/products.service"
 
 @Component({
-  selector: "app-product",
+  selector: "app-product-view",
   templateUrl: "./product.component.html",
   styleUrls: ["./product.component.css"]
 })
 export class ProductComponent implements OnInit {
-  @Input() product: Product = {
+  product: Product = {
     id: 0,
     title: "",
     price: 0,
@@ -21,13 +23,17 @@ export class ProductComponent implements OnInit {
   }
 
   qtyDropdownElements: number[] = Array.from({ length: 10 }, (_, i) => i + 1)
-  selectedValue: number = 1
-  constructor(private cardService: CardService) {}
+  constructor(private route: ActivatedRoute, private cardService: CardService, private productsService: ProductsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.route)
+    this.route.params.subscribe((params) => {
+      this.productsService.getProductById(params["id"]).subscribe((data) => (this.product = data))
+    })
+  }
 
-  addToCardComponent(product: Product) {
-    const cardItem: CardItem = { product: product, qty: this.selectedValue }
+  addToCardComponent(product: Product, qty: number) {
+    const cardItem: CardItem = { product: product, qty: qty }
     this.cardService.addToCard(cardItem)
     window.alert(`Product: ${product.title} added to card`)
   }

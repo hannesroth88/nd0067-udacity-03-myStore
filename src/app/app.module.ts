@@ -7,8 +7,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CardComponent } from './components/card/card.component';
+import { ProductSimpleComponent } from './components/product-simple/product-simple.component';
 import { ProductComponent } from './components/product/product.component';
-import { ProductViewComponent } from './components/product-view/product-view.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -17,8 +17,8 @@ import { FormsModule } from '@angular/forms';
     ProductsComponent,
     NavigationComponent,
     CardComponent,
-    ProductComponent,
-    ProductViewComponent
+    ProductSimpleComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

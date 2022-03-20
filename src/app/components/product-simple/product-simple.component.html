@@ -1,0 +1,16 @@
+<div class="card" margin="20px">
+  <div class="products-card-image">
+    <img class="card-img-top products-image" src="{{ product.image }}" alt="Card image cap" />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      <a routerLink="/product/{{ product.id }}">{{ product.title }}</a>
+    </h5>
+    <p class="card-text">Price: {{ product.price }}€</p>
+
+    <select class="qty-select" id="inputGroupSelectQty" [(ngModel)]="selectedValue">
+      <option *ngFor="let i of qtyDropdownElements" value="{{ i }}">{{ i }}</option>
+    </select>
+    <button (click)="addToCardComponent(product)" class="btn btn-primary">add to card</button>
+  </div>
+</div>

@@ -14,11 +14,11 @@ export class ProductsService {
 * output:
 * @param {string} products - some example products
 **/
-  getProducts():Observable<[]>{
-    return this.httpClient.get<[]>('https://fakestoreapi.com//products?limit=15');
+  getProducts():Observable<Product[]>{
+    return this.httpClient.get<Product[]>('https://fakestoreapi.com//products?limit=15');
   }
   
-  getProductById(id:string):Observable<[]>{
-    return this.httpClient.get<[]>('https://fakestoreapi.com//products/' + id);
+  getProductById(id:string):Observable<Product>{
+    return this.httpClient.get<Product>('https://fakestoreapi.com//products/' + id);
   }
 }
