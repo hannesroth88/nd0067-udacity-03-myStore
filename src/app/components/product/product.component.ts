@@ -23,6 +23,7 @@ export class ProductComponent implements OnInit {
   }
 
   qtyDropdownElements: number[] = Array.from({ length: 10 }, (_, i) => i + 1)
+  selectedValue: number = 1
   constructor(private route: ActivatedRoute, private cardService: CardService, private productsService: ProductsService) {}
 
   ngOnInit(): void {
@@ -32,8 +33,8 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  addToCardComponent(product: Product, qty: number) {
-    const cardItem: CardItem = { product: product, qty: qty }
+  addToCardComponent(product: Product) {
+    const cardItem: CardItem = { product: product, qty: this.selectedValue }
     this.cardService.addToCard(cardItem)
     window.alert(`Product: ${product.title} added to card`)
   }

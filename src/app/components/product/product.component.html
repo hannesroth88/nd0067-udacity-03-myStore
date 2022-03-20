@@ -9,15 +9,9 @@
       <br />
       {{ product.description }}
     </p>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelectQty">Qty</label>
-      </div>
-      <select class="custom-select" id="inputGroupSelectQty">
-        <option *ngFor="let i of qtyDropdownElements" value="{{ i }}">{{ i }}</option>
-      </select>
-    </div>
-
-    <button (click)="addToCardComponent(product, 2)" class="btn btn-primary">add to card</button>
+    <select class="qty-select" id="inputGroupSelectQty" [(ngModel)]="selectedValue">
+      <option *ngFor="let i of qtyDropdownElements" value="{{ i }}">{{ i }}</option>
+    </select>
+    <button (click)="addToCardComponent(product)" class="btn btn-primary">add to card</button>
   </div>
 </div>
