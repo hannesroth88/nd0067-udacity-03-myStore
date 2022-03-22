@@ -12,7 +12,6 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
-    //@ts-ignore
     this.productService.getProducts().pipe(retryWhen(errors => errors.pipe(delay(1000), take(100)))).subscribe((data) => (this.productList = data))
   }
 }

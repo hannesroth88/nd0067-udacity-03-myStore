@@ -9,15 +9,22 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) {}
   /**
    * @description get example products data from https://fakestoreapi.com/. Limit of 10 products
-   * @constructor
    * output:
-   * @param {string} products - some example products
+   * @param {string} Product[] - some example products
    **/
   getProducts(): Observable<Product[]> {
     console.log("getting products")
+    // for demo purpose limit it to 15 elements    
     return this.httpClient.get<Product[]>("https://fakestoreapi.com//products?limit=15")
   }
 
+  /**
+   * @description get a single product by id
+   * inputs:
+   * @param {string} id - Id of product
+   * output:
+   * @param {string} product - the product to be shown
+   **/
   getProductById(id: string): Observable<Product> {
     return this.httpClient.get<Product>("https://fakestoreapi.com//products/" + id)
   }
