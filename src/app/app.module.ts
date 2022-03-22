@@ -12,7 +12,6 @@ import { ProductComponent } from "./components/product/product.component"
 import { FormsModule } from "@angular/forms"
 import { CartItemComponent } from "./components/cart-item/cart-item.component"
 import { CartOrderCreatedComponent } from "./components/cart-order-created/cart-order-created.component"
-import { ActivatedRoute, RouterModule } from "@angular/router"
 
 @NgModule({
   declarations: [
@@ -25,7 +24,7 @@ import { ActivatedRoute, RouterModule } from "@angular/router"
     CartItemComponent,
     CartOrderCreatedComponent
   ],
-  imports: [ActivatedRoute, BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, FormsModule, RouterModule.forRoot([])],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
