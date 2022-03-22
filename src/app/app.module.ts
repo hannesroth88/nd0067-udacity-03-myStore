@@ -11,7 +11,6 @@ import { ProductSimpleComponent } from './components/product-simple/product-simp
 import { ProductComponent } from './components/product/product.component';
 import { FormsModule } from '@angular/forms';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
-import { CardUserComponent } from './components/card-user/card-user.component';
 import { CartOrderCreatedComponent } from './components/cart-order-created/cart-order-created.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { CartOrderCreatedComponent } from './components/cart-order-created/cart-
     ProductComponent,
     CartComponent,
     CartItemComponent,
-    CardUserComponent,
     CartOrderCreatedComponent
   ],
   imports: [

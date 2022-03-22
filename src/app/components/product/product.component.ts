@@ -43,5 +43,3 @@ export class ProductComponent implements OnInit {
     }
   }
 }
-
-          this.product=history.state;
