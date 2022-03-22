@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core"
+import { CartService } from "src/app/services/cart.service"
 
 @Component({
   selector: "app-cart-item",
@@ -7,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core"
 })
 export class CartItemComponent implements OnInit {
   @Output() qtyChangeEvent = new EventEmitter()
+  @Output() removeItemEvent = new EventEmitter()
   @Input() cartItem: CartItem = {
     product: {
       id: 0,
@@ -23,7 +25,8 @@ export class CartItemComponent implements OnInit {
     qty: 0
   }
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
+
 }

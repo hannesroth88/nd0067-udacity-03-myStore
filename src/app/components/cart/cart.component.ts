@@ -20,10 +20,13 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart()
-    this.updateTotalPrice()
+    this.totalPrice = this.cartService.calculateTotalPrice()
   }
 
-  updateTotalPrice() {
+  onQtyChange(cartItem:CartItem) {
+    if(cartItem.qty===0){
+      this.removeItem(cartItem.product.id)
+    }
     this.totalPrice = this.cartService.calculateTotalPrice()
   }
 
@@ -35,5 +38,11 @@ export class CartComponent implements OnInit {
     } else {
       this.creditCardInfo = "invalid credit card number"
     }
+  }
+  
+  removeItem(id: number) {
+    this.cartService.removeItem(id)
+    this.cart = this.cartService.getCart()
+    this.totalPrice = this.cartService.calculateTotalPrice()
   }
 }

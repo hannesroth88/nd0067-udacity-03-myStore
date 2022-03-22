@@ -3,7 +3,7 @@
     <div class="col">
       <ng-container class="cardItems" *ngIf="cart?.length; else noItems">
         <div class="row">
-          <app-cart-item *ngFor="let cartItem of cart" [cartItem]="cartItem" (qtyChangeEvent)="updateTotalPrice()">
+          <app-cart-item *ngFor="let cartItem of cart" [cartItem]="cartItem" (qtyChangeEvent)="onQtyChange($event)" (removeItemEvent)="removeItem($event)">
           </app-cart-item>
         </div>
         <div class="row">

@@ -11,7 +11,11 @@
           <label for="quantity-card-item" class="col-form-label">Quantity</label>
         </div>
         <div class="col-3">
-          <input type="number" class="form-control" id="quantity-card-item" [(ngModel)]="cartItem.qty" (ngModelChange)="qtyChangeEvent.emit()" placeholder="Qty" aria-label="Quantity"  />
+          <input type="number" class="form-control" id="quantity-card-item" [(ngModel)]="cartItem.qty"
+            (ngModelChange)="qtyChangeEvent.emit(cartItem)" placeholder="Qty" aria-label="Quantity" />
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary" (click)="removeItemEvent.emit(cartItem.product.id)">x</button>
         </div>
       </div>
     </div>

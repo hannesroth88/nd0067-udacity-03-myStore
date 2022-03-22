@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { ProductsService } from "src/app/services/products.service"
-import { CartService } from "src/app/services/cart.service"
+import { delay, retryWhen, take } from "rxjs"
 
 @Component({
   selector: "app-products",
@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((data) => (this.productList = data))
+    //@ts-ignore
+    this.productService.getProducts().pipe(retryWhen(errors => errors.pipe(delay(1000), take(100)))).subscribe((data) => (this.productList = data))
   }
 }

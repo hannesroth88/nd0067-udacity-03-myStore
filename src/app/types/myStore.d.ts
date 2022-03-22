@@ -20,5 +20,7 @@ interface Order {
 }
 
 interface User {
-  fullName: string; address: string; creditCard: string 
+  fullName: string
+  address: string
+  creditCard: string
 }

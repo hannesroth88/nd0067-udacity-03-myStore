@@ -36,12 +36,15 @@ export class CartService {
     }, 0)
     return Math.round(sum * 100) / 100
   }
+  removeItem(id:number): void {
+    this.cart=this.cart.filter(item => !(item.product.id === id))
+  }
 
   createOrder(cart: CartItem[], user: User, totalPrice: number) {
     this.order = { cart: cart, user: user, totalPrice: totalPrice }
   }
 
-  getOrder():Order{
+  getOrder(): Order {
     return this.order
   }
 }

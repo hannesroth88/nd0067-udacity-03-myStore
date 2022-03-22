@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute } from "@angular/router"
+import { delay, retryWhen, take } from "rxjs"
 import { CartService } from "src/app/services/cart.service"
 import { ProductsService } from "src/app/services/products.service"
 
@@ -29,7 +30,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.route)
     this.route.params.subscribe((params) => {
-      this.productsService.getProductById(params["id"]).subscribe((data) => (this.product = data))
+      this.productsService.getProductById(params["id"]).pipe(retryWhen(errors => errors.pipe(delay(1000), take(100)))).subscribe((data) => (this.product = data))
     })
   }
 
