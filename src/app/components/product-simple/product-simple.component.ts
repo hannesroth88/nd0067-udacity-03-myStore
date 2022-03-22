@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core"
-import { CardService } from "src/app/services/card.service"
+import { CartService } from "src/app/services/cart.service"
 
 @Component({
   selector: "app-product",
@@ -22,13 +22,17 @@ export class ProductSimpleComponent implements OnInit {
 
   qtyDropdownElements: number[] = Array.from({ length: 10 }, (_, i) => i + 1)
   selectedValue: number = 1
-  constructor(private cardService: CardService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
 
-  addToCardComponent(product: Product) {
-    const cardItem: CardItem = { product: product, qty: this.selectedValue }
-    this.cardService.addToCard(cardItem)
-    window.alert(`Product: ${product.title} added to card`)
+  addToCartComponent(product: Product) {
+    const cartItem: CartItem = { product: product, qty: this.selectedValue }
+    try {
+      this.cartService.addToCart(cartItem)
+      window.alert(`Product: ${product.title} added to cart`)
+    } catch (error) {
+      window.alert(error)
+    }
   }
 }

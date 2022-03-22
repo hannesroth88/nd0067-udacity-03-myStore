@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute } from "@angular/router"
-import { CardService } from "src/app/services/card.service"
+import { CartService } from "src/app/services/cart.service"
 import { ProductsService } from "src/app/services/products.service"
 
 @Component({
@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
 
   qtyDropdownElements: number[] = Array.from({ length: 10 }, (_, i) => i + 1)
   selectedValue: number = 1
-  constructor(private route: ActivatedRoute, private cardService: CardService, private productsService: ProductsService) {}
+  constructor(private route: ActivatedRoute, private cartService: CartService, private productsService: ProductsService) {}
 
   ngOnInit(): void {
     console.log(this.route)
@@ -33,9 +33,15 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  addToCardComponent(product: Product) {
-    const cardItem: CardItem = { product: product, qty: this.selectedValue }
-    this.cardService.addToCard(cardItem)
-    window.alert(`Product: ${product.title} added to card`)
+  addToCartComponent(product: Product) {
+    const cartItem: CartItem = { product: product, qty: this.selectedValue }
+    try {
+      this.cartService.addToCart(cartItem)
+      window.alert(`Product: ${product.title} added to cart`)
+    } catch (error) {
+      window.alert(error)
+    }
   }
 }
+
+          this.product=history.state;

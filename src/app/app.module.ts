@@ -6,19 +6,25 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { CardComponent } from './components/card/card.component';
+import { CartComponent } from './components/cart/cart.component';
 import { ProductSimpleComponent } from './components/product-simple/product-simple.component';
 import { ProductComponent } from './components/product/product.component';
 import { FormsModule } from '@angular/forms';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CardUserComponent } from './components/card-user/card-user.component';
+import { CartOrderCreatedComponent } from './components/cart-order-created/cart-order-created.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     NavigationComponent,
-    CardComponent,
     ProductSimpleComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent,
+    CartItemComponent,
+    CardUserComponent,
+    CartOrderCreatedComponent
   ],
   imports: [
     BrowserModule,

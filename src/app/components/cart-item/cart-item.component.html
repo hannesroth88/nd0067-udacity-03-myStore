@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="card" margin="20px">
+    <div class="products-cart-image">
+      <img class="card-img-top products-image" src="{{ cartItem.product.image }}" alt="Card image cap" />
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ cartItem.product.title }}</h5>
+      <p class="card-text">Price: {{ cartItem.product.price }}€</p>
+      <div class="row">
+        <div class="col-3">
+          <label for="quantity-card-item" class="col-form-label">Quantity</label>
+        </div>
+        <div class="col-3">
+          <input type="number" class="form-control" id="quantity-card-item" [(ngModel)]="cartItem.qty" (ngModelChange)="qtyChangeEvent.emit()" placeholder="Qty" aria-label="Quantity"  />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
