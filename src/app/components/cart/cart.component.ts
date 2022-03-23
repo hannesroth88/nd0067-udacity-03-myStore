@@ -42,6 +42,7 @@ export class CartComponent implements OnInit {
   
   removeItem(id: number) {
     this.cartService.removeItem(id)
+    window.alert("Item was removed from card")
     this.cart = this.cartService.getCart()
     this.totalPrice = this.cartService.calculateTotalPrice()
   }
