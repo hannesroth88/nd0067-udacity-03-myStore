@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
     creditCard: ""
   }
   creditCardInfo: string = ""
+  paymentType: string = "Coinbase"
   constructor(private router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {
@@ -23,23 +24,21 @@ export class CartComponent implements OnInit {
     this.totalPrice = this.cartService.calculateTotalPrice()
   }
 
-  onQtyChange(cartItem:CartItem) {
-    if(cartItem.qty===0){
+  onQtyChange(cartItem: CartItem) {
+    if (cartItem.qty === 0) {
       this.removeItem(cartItem.product.id)
     }
     this.totalPrice = this.cartService.calculateTotalPrice()
   }
 
   onSubmit(): void {
-    if (this.user.creditCard.length == 16 && !isNaN(parseInt(this.user.creditCard))) {
-      this.creditCardInfo = ""
-      this.cartService.createOrder(this.cart, this.user, this.totalPrice)
-      this.router.navigate(["/order-created"])
-    } else {
-      this.creditCardInfo = "invalid credit card number"
+    this.creditCardInfo = ""
+    this.cartService.createOrder(this.cart, this.user, this.totalPrice)
+    if (this.paymentType == "Coinbase") {
+      this.router.navigate(["/checkout/coinbase"])
     }
   }
-  
+
   removeItem(id: number) {
     this.cartService.removeItem(id)
     window.alert("Item was removed from card")

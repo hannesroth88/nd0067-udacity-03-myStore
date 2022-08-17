@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core"
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Injectable({
   providedIn: "root"
@@ -6,6 +8,7 @@ import { Injectable } from "@angular/core"
 export class CartService {
   cart: CartItem[] = []
   order: Order = {
+    id:"",
     cart: [],
     user: {
       fullName: "",
@@ -70,7 +73,7 @@ export class CartService {
    * @param {number} totalPrice - totalPrice of order
    **/
   createOrder(cart: CartItem[], user: User, totalPrice: number) {
-    this.order = { cart: cart, user: user, totalPrice: totalPrice }
+    this.order = { id: uuidv4(),cart: cart, user: user, totalPrice: totalPrice }
   }
 
   /**

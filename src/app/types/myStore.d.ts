@@ -14,6 +14,7 @@ interface CartItem {
 }
 
 interface Order {
+  id:string
   cart: CartItem[]
   user: User
   totalPrice: number

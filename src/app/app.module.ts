@@ -11,7 +11,10 @@ import { ProductSimpleComponent } from "./components/product-simple/product-simp
 import { ProductComponent } from "./components/product/product.component"
 import { FormsModule } from "@angular/forms"
 import { CartItemComponent } from "./components/cart-item/cart-item.component"
-import { CartOrderCreatedComponent } from "./components/cart-order-created/cart-order-created.component"
+import { CartOrderCreatedComponent } from "./components/cart-order-created/cart-order-created.component";
+import { CoinbaseComponent } from './components/checkout/coinbase/coinbase.component';
+import { SuccessComponent } from './components/checkout/success/success.component';
+import { CanceledComponent } from './components/checkout/canceled/canceled.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { CartOrderCreatedComponent } from "./components/cart-order-created/cart-
     ProductComponent,
     CartComponent,
     CartItemComponent,
-    CartOrderCreatedComponent
+    CartOrderCreatedComponent,
+    CoinbaseComponent,
+    SuccessComponent,
+    CanceledComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgbModule, FormsModule],
   providers: [],

@@ -10,7 +10,8 @@ export class CartOrderCreatedComponent implements OnInit {
   order: Order = {
     cart: [],
     user: { fullName: "", address: "", creditCard: "" },
-    totalPrice: 0
+    totalPrice: 0,
+    id: ""
   }
   constructor(private cartService: CartService) {}
 
